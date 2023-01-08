@@ -21,7 +21,7 @@ contract NFTsAuction {
     event ListNFT (
         address indexed owner,
         uint listingId,
-        address indexed nftAddress,
+        address indexed nftContractAddr,
         uint indexed nftId,
         uint minPrice,
         uint endTime,
@@ -49,8 +49,8 @@ contract NFTsAuction {
         return IERC721Receiver.onERC721Received.selector;
     }
 
-    function listNFT(address nftAddress, uint nftId, uint minPrice, uint hrs) external{
-        IERC721 nftContract = IERC721(nftAddress);
+    function listNFT(address nftContractAddr, uint nftId, uint minPrice, uint hrs) external{
+        IERC721 nftContract = IERC721(nftContractAddr);
         require(nftContract.ownerOf(nftId) == msg.sender, "only NFT owner can list");
         require(nftContract.getApproved(nftId) == address(this), "not approved list to this contract");
         nftContract.safeTransferFrom(msg.sender, address(this), nftId);
@@ -65,7 +65,7 @@ contract NFTsAuction {
         listing.owner = msg.sender;
 
        
-        emit ListNFT(msg.sender, nextListingId, nftAddress, nftId, minPrice, endTime, block.timestamp);
+        emit ListNFT(msg.sender, nextListingId, nftContractAddr, nftId, minPrice, endTime, block.timestamp);
         nextListingId++;
     }
 
