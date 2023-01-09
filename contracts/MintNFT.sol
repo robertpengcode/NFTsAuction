@@ -5,8 +5,6 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract MintNFT is ERC721URIStorage {
-    // using Counters for Counters.Counter;
-    // Counters.Counter private _tokenIds;
     uint nextNftId;
     constructor() ERC721("BOB NFT", "BOB") {}
 
@@ -14,12 +12,10 @@ contract MintNFT is ERC721URIStorage {
         public
         returns (uint256)
     {
-        //uint256 nftId = _tokenIds.current();
         uint nftId = nextNftId;
         _safeMint(user, nftId);
         _setTokenURI(nftId, tokenURI);
 
-        //_tokenIds.increment();
         nextNftId++;
         return nftId;
     }

@@ -23,7 +23,6 @@ describe("NFTsAuction", function () {
     await mintNFT.deployed();
     await nftsAuction.deployed();
     await mintNFT.mintNFT(owner.address, "testURI1");
-    //console.log("here", id);
   });
 
   describe("List NFT", function () {

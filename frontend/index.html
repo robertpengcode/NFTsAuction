@@ -71,6 +71,7 @@
                 </div>
                 <div class="item">
                     <h3>2. Approve NFT for Auction</h3>
+                    <input class="input" type="text" id="nftIdAppr" placeholder="Enter NFT ID" min=0/>
                     <button class="btn" onclick="approve()">Approve</button>
                 </div>
             </div>
@@ -83,7 +84,7 @@
                     <h3>1. List NFT for Auction</h3>
                     <div>
                         <input class="input" type="text" id="nftContractAddr" placeholder="Enter NFT Address"/>
-                        <input class="input" type="text" id="nftId" placeholder="Enter Token ID" min=0/>
+                        <input class="input" type="text" id="nftId" placeholder="Enter NFT ID" min=0/>
                         <input class="input" type="number" id="minPrice" placeholder="Enter Min Price" min=0/>
                         <input class="input" type="number" id="hrs" placeholder="Enter Auction Hours" min=0/>
                         <button class="btn" onclick="list()">List</button>
@@ -100,7 +101,7 @@
                 <div class="item">
                     <h3>3. End Auction</h3>
                     <div>
-                        <input class="input" type="text" id="listIDget" placeholder="Enter Listing ID" min=0/>
+                        <input class="input" type="text" id="listIDend" placeholder="Enter Listing ID" min=0/>
                         <button class="btn" onclick="end()">End</button>
                     </div>
                 </div>
@@ -117,7 +118,7 @@
                 <div class="item">
                     <h3>1. Check Listing</h3>
                         <input type="text" id="listIDget" placeholder="Enter Listing ID" min=0/>
-                        <button class="btn" onclick="getInfo()">Get</button>
+                        <button class="btn" onclick="getListingInfo()">Get</button>
                         <div>Address:<span class="info" id="nftContractget"></span></div>
                         <div>NFT ID:<span class="info" id="nftIdDget"></span></div>
                         <div>Min Price:<span class="info" id="minPriceget"></span></div>
@@ -134,86 +135,3 @@
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
-
-<!-- <body>
-    <header>
-        <h1>Blockchain Practice Project #1. Joint Account</h1>
-        <button onclick="getAccess()">Connect</button>
-    </header>
-    <main >
-        <div class="container">
-            <h3>A. Get Account Info</h3>
-            <div class="row">
-                <div class="item">
-                    <h4>1. View My Accounts (ID): <span id="accounts" class="info"></span></h4>
-                    <button class="btn" onclick="getUserAccountsHandler()" >View</button>
-                </div>
-                <div class="item">
-                    <h4>2. View Account Balance: <span id="acctBalance" class="info"></span></h4>
-                    <input class="input" type="text" id="acctIdBal" placeholder="Enter Account ID"/>
-                    <button class="btn" onclick="getAccountBalanceHandler()">View</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="item">
-                    <h4>3. View Account Owners: </h4>
-                    <span id="acctOwners" class="info small"></span>
-                    <input class="input" type="text" id="acctIdOwn" placeholder="Enter Account ID"/>
-                    <button class="btn" onclick="getAccountOwnersHandler()">View</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <h3>B. Open Account & Deposit</h3>
-            <div class="row">
-                <div class="item">
-                    <h4>1. Open a joint account</h4>
-                    <input class="input" type="text" id="owners" placeholder="Address1,Address2,..."/>
-                    <button class="btn" onclick="openAccountHandler()">Open Account</button>
-                </div>
-                <div class="item">
-                    <h4>2. Deposit To The Joint Account</h4>
-                    <input class="input" type="text" id="acctIdDep" placeholder="Enter Account ID"/>
-                    <input class="input" type="number" id="amountDep" placeholder="Enter Deposit Amount"/>
-                    <button class="btn" onclick="depositHandler()">Deposit</button>
-                    
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <h3>C. Withdraw</h3>
-            <div class="row">
-                <div class="item">
-                    <h4>1. Request A Withdrawl</h4>
-                    <input class="input" type="text" id="acctIdReq" placeholder="Enter Account ID"/>
-                    <input class="input" type="number" id="amountReq" placeholder="Enter Withdraw Amount"/>
-                    <button class="btn" onclick="requestWithdrawHandler()">Request</button>
-                </div>
-                <div class="item">
-                    <h4>2. Approve A Withdrawl</h4>
-                    <input class="input" type="text" id="acctIdApp" placeholder="Enter Account ID"/>
-                    <input class="input" type="text" id="withdrawIdApp" placeholder="Enter Withdraw ID"/>
-                    <button class="btn" onclick="approveWithdrawHandler()">Approve</button>
-                </div>
-                <div class="item">
-                    <h4>3. Withdraw</h4>
-                    <input class="input" type="text" id="acctIdWith" placeholder="Enter Account ID"/>
-                    <input class="input" type="text" id="withdrawIdWith" placeholder="Enter Withdraw ID"/>
-                    <button class="btn" onclick="withdrawHandler()">Withdraw</button>
-                </div>
-            </div>
-        </div>
-
-        <div>
-            <h3>Events</h3>
-            <div id="events"></div>
-        </div>
-
-    </main>
-
-    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
-        type="application/javascript"></script>
-    <script type="text/javascript" src="script.js"></script>
-</body> -->
