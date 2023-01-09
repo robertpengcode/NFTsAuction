@@ -155,7 +155,11 @@ async function getListingInfo() {
     .then((result) => {
       const [nftContractAddr, nftId, minPrice, highestBid, endTime] = result;
       const date = new Date(endTime * 1000);
-      document.getElementById("nftContractget").innerHTML = nftContractAddr;
+      const addrLength = nftContractAddr.length;
+      const addr = `${nftContractAddr.slice(0, 5)}...${nftContractAddr.slice(
+        addrLength - 4
+      )}`;
+      document.getElementById("nftContractget").innerHTML = addr;
       document.getElementById("nftIdDget").innerHTML = nftId;
       document.getElementById("minPriceget").innerHTML = minPrice;
       document.getElementById("highestBidget").innerHTML = highestBid;
